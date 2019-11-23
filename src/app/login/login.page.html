@@ -10,23 +10,25 @@
 
     <div heading-column-lr>
       <h1 big-heading>Login</h1>
-      <h2 small-heading>SIGN UP</h2>
+
+      <h2 small-heading (click)="Sign()">SIGN UP </h2>
+
     </div>
 
     <ion-label>
       Doctor Management
     </ion-label>
     <div linespace></div>
-
+<form [formGroup]="log" (ngSubmit)="Login()">
     <ion-item transparent>
       <img icon-small src="assets/icon/user.png" />
-      <ion-input [(ngModel)]="Email" placeholder="Username" type="text"></ion-input>
+      <ion-input formControlName="Email" placeholder="Username" type="text"></ion-input>
     </ion-item>
 
 
     <ion-item transparent>
       <img icon-small src="assets/icon/lock.png" />
-      <ion-input [(ngModel)]="Password" placeholder="Password" type="password"></ion-input>
+      <ion-input formControlName="Password" placeholder="Password" type="password"></ion-input>
     </ion-item>
     <ion-label class="forget-password">Forget Password</ion-label>
 
@@ -36,7 +38,7 @@
                 (click)="Login()">LOGIN</ion-button>
     <ion-label class="ion-text-center">Don’t have Account? <span class="link-button">Sign Up</span>
     </ion-label>
-
+</form>
   </div>
 
 
