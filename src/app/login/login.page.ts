@@ -12,16 +12,24 @@ import {Storage} from '@ionic/storage';
 export class LoginPage implements OnInit {
   log: FormGroup;
   user :any ;
+  maillogin :any ;
   constructor(public menuCtrl: MenuController, private navCtrl: NavController,
               public userservice: UserServiceService, private formBuilder: FormBuilder ,
               public storage: Storage
               ) {
     this.log = this.formBuilder.group({
-
-      Email: ['', Validators.required],
+      Email: ['', Validators.required]  ,
       Password: ['', Validators.required],
 
+
     });
+
+                     this.storage.get('Email').then((val) => {
+                      this.maillogin =val;
+                      });
+
+
+
   }
 
   ngOnInit() {
@@ -35,26 +43,31 @@ export class LoginPage implements OnInit {
   }
   Login(){
     const verif =this.log.value;
+      console.log(this.log.value);
     this.userservice.checking(verif).toPromise().then((response)=> {
-     this.user=response.hits.hits;
-      console.log(this.user);
+        this.user=response ;
+        console.log(this.user);
       if(verif.Email=="admin" && verif.Password == "admin"){
-        this.navCtrl.navigateRoot(
-            "/list"
-        );}
+        this.navCtrl.navigateRoot( "/list");
+                this.storage.set("Email",verif.Email);
+                 this.storage.get('Email').then((val) => {
+                    console.log('Your email is', val);
+                    });
+                    }
       else if(this.user.length !=0){
-        alert("found!");
+        //alert("found!");
         this.storage.set("Email",verif.Email);
-        this.navCtrl.navigateRoot("/home");
+        console.log(this.storage);
+        this.navCtrl.navigateRoot("/list-patient");
 
       }
+      else{
+          alert("Erreur!");
+      }
     });
-    /*if(Email.equals("admin") && Password.equals("admin")){
-      this.navCtrl.navigateRoot(
-          "/admin-page"
-      );
 
-    }*/
   }
+
+
 
 }

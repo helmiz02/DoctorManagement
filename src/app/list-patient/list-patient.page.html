@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Patient liste </ion-title>
+  </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content>
+  <h3>Patients</h3>
+  <ion-icon name="md-add-circle" [routerLink]="'/patien'"></ion-icon>
+  <ion-grid>
+    <ion-row>
+      <ion-col ><b>Full Name</b></ion-col>
+      <ion-col ><b>Email</b></ion-col>
+      <ion-col ><b>Description</b></ion-col>
+      <ion-col ><b>Action</b></ion-col>
+    </ion-row>
+
+    <ion-row  text-warp *ngFor="let pat of pts" >
+
+      <ion-col *ngIf="mail == pat._source.maillogin">{{pat._source.FullName}}</ion-col>
+      <ion-col *ngIf="mail == pat._source.maillogin">{{pat._source.Email}}</ion-col>
+      <ion-col *ngIf="mail == pat._source.maillogin">{{pat._source.Description}}</ion-col>
+      <ion-col *ngIf="mail == pat._source.maillogin"><ion-button [routerLink]="'/update-p/'+pat._id">Edite</ion-button>
+        <ion-button (click)="del(pat._id)" >Delete</ion-button></ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

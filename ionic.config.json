@@ -1,5 +1,7 @@
 {
   "name": "DoctorManagement",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

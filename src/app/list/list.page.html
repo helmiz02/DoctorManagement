@@ -1,27 +1,45 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      List
-    </ion-title>
+    <ion-title>users</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
-      </div>
+  <h3>Users</h3>
+  <ion-grid>
+    <ion-row>
+      <ion-col ><b>ID</b></ion-col>
+      <ion-col ><b>Name</b></ion-col>
+      <ion-col ><b>Email</b></ion-col>
+    </ion-row>
+    <ion-row  text-warp *ngFor="let user of users" >
+      <ion-col>{{user._id}}</ion-col>
+      <ion-col>{{user._source.name}}</ion-col>
+      <ion-col>{{user._source.email}}</ion-col>
+      <ion-col><ion-button >Contacter</ion-button></ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+
+  <!--   <form   [formGroup]="data"  (ngSubmit)="postuler()">
+      <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input type="txt" formControlName="name"></ion-input>
     </ion-item>
-  </ion-list>
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
-    </div>
-  -->
+
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input type="text" formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>ID</ion-label>
+      <ion-input type="text" formControlName="id"></ion-input>
+    </ion-item>
+
+    <ion-button type="submit"  >add</ion-button>
+    </form> -->
+
+
 </ion-content>

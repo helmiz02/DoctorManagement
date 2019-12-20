@@ -12,6 +12,18 @@ export class UserServiceService {
     this.header = this.header.append('Accept', 'application/json');
   }
 
+  all()
+  {
+    let url = '/dm/user/_search';
+    return this.http.get(url, {headers: this.header});
+  }
+
+  allPatient()
+  {
+    let url = '/pat/patient/_search';
+    return this.http.get(url, {headers: this.header});
+  }
+
   addUser(user)
   {
     let url='/dm/user';
@@ -25,15 +37,43 @@ export class UserServiceService {
         "bool":{
           "must":[
             {"match":{"email" : user.Email}},
-
             {"match":{"password" : user.Password}}
           ]
 
         }
       }
     }
-
     return this.http.post(url,body,{headers:this.header});
 
+  }
+
+
+  addPatient(patient,mail){
+    let url='/pat/patient/';
+    return this.http.post(url,
+      {"FullName": patient.FullName,
+      "Email": patient.Email,
+      "Telephone": patient.Telephone,
+      "Description": patient.Description,
+      "maillogin": mail
+    },{headers:this.header});
+
+  }
+
+  getid(id){
+    let url = '/pat/patient/'+id;
+    return this.http.get(url, {headers: this.header});
+
+  }
+
+  update(id,pat){
+    let url='/pat/patient/'+id;
+    return this.http.post(url,pat,{headers:this.header})
+
+  }
+
+  deleteP(id){
+    let url='/pat/patient/'+id;
+    return this.http.delete(url,{headers:this.header})
   }
 }

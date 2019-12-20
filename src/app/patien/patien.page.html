@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Add Patient</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="center">
+
+
+
+    <ion-label>
+      Add Patient
+    </ion-label>
+    <div linespace></div>
+    <form [formGroup]="Pform" (ngSubmit)="Add()">
+
+      <ion-item transparent>
+        <ion-input formControlName="FullName" placeholder="FullName" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item transparent>
+        <ion-input formControlName="Email" placeholder="Email" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item transparent>
+        <ion-input formControlName="Telephone" placeholder="Telephone" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item transparent>
+        <ion-textarea formControlName="Description" placeholder="Description" type="text"></ion-textarea>
+      </ion-item>
+
+
+      <div linespace></div>
+
+      <ion-button color="primary" class="ion-button-class" shape="round" fill="solid" size="large" expand="block"
+                  type="submit">ADD</ion-button>
+
+    </form>
+  </div>
+
+
+</ion-content>

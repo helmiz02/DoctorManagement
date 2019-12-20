@@ -1,9 +1,17 @@
-{"/dm" :
 {
-  "target" : "http://localhost:9200",
-  "changeOrigin": true,
-  "secure" : false,
-  "logLevel" : "debug"
-}
+  "/dm" :
+        {
+          "target" : "http://localhost:9200",
+          "changeOrigin": true,
+          "secure" : false,
+          "logLevel" : "debug"
+        },
+  "/pat" :
+  {
+    "target" : "http://localhost:9200",
+    "changeOrigin": true,
+    "secure" : false,
+    "logLevel" : "debug"
+  }
 
 }

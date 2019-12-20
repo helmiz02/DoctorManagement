@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Update Patient</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+  <ion-content padding>
+    <form [formGroup]="registerForm" (ngSubmit)="edit()">
+
+      <ion-list>
+        <ion-item>
+          <ion-label position="stacked">Full Name</ion-label>
+
+          <ion-input formControlName="FullName" type="text" value="{{FullName}}">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input formControlName="Email" type="text" value="{{Email}}" >
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Telephone</ion-label>
+          <ion-input formControlName="Telephone" type="text" value="{{Telephone}}">
+          </ion-input>
+        </ion-item>
+
+
+        <ion-item>
+          <ion-label position="stacked">Description</ion-label>
+          <ion-input formControlName="Description" type="text" value="{{Description}}">
+          </ion-input>
+        </ion-item>
+
+      </ion-list>
+
+      <ion-row class="signin">
+        <ion-col>
+          <ion-button type="submit"  color="primary" shape="full" expand="block">Edit</ion-button>
+        </ion-col>
+      </ion-row>
+
+    </form>
+
+
+</ion-content>

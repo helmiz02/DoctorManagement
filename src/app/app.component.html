@@ -5,9 +5,22 @@
         <ion-toolbar>
           <ion-title>Menu</ion-title>
         </ion-toolbar>
+        <div linespace></div>
+        <ion-toolbar>
+
+          <ion-label class="userName"> <img class="icon" src="assets/icon/user.png" />  {{maillogin}}</ion-label>
+          <!--  //<h2 small-heading (click)="LogOut()">Log Out </h2>  -->
+          <img icon-small  src="assets/icon/logout.png" (click)="LogOut()">
+        </ion-toolbar>
       </ion-header>
       <ion-content>
+
+
+
+        <div linespace></div>
+
         <ion-list>
+
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
             <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
               <ion-icon slot="start" [name]="p.icon"></ion-icon>

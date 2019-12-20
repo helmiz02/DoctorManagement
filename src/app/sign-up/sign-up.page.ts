@@ -40,7 +40,7 @@ export class SignUpPage implements OnInit {
     this.userservice.addUser(this.registerForm.value).subscribe(res => {
 
       console.log(res);
-      this.User = res ;
+      //this.User = res ;
       // this.registerForm.reset();
       this.navCtrl.navigateRoot("/login");
 

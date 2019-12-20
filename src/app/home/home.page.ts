@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {MenuController, NavController} from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,8 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor( ) {}
+  constructor( public menuCtrl: MenuController) {
+   this.menuCtrl.enable(true);
+  }
 
 }
